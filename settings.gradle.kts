@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "UserAppMultiModuleArchitecture"
 include(":app")
+include(":core:model")
