@@ -4,6 +4,11 @@ A small multi-module Android application that fetches a list of users from a sam
 endpoint and shows a detail screen for each user. Built to demonstrate a clean, layered,
 multi-module architecture even though the feature set is intentionally small.
 
+
+<p>
+  <img src="screenshots/userapp_header.png" width="900" alt=""/>
+</p>
+
 ## Features
 
 - **Users list screen** – loads users from the network, shows avatar, name and email in a
