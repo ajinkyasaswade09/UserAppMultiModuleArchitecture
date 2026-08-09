@@ -1,4 +1,4 @@
-# TestApp – Users Directory
+# UserApp – Users Directory
 
 A small multi-module Android application that fetches a list of users from a sample REST
 endpoint and shows a detail screen for each user. Built to demonstrate a clean, layered,
@@ -53,13 +53,13 @@ graph TD
  featureUsers --> model
 ```
 
-- **`:app`** – `TestApplication` (`@HiltAndroidApp`), `MainActivity`, and the `NavHost` that
+- **`:app`** – `UserApplication` (`@HiltAndroidApp`), `MainActivity`, and the `NavHost` that
   wires the list and detail destinations together.
 - **`:core:model`** – framework-free `User` domain model.
 - **`:core:network`** – `UsersApi` (Retrofit), `UserDto` + mapper, and the Hilt
   `NetworkModule` that provides Retrofit/OkHttp/Json.
 - **`:core:data`** – `UsersRepository` abstraction and `UsersRepositoryImpl`, its Hilt
-  binding, and the Room persistence layer (`CachedUserEntity`, `UsersDao`, `TestAppDatabase`,
+  binding, and the Room persistence layer (`CachedUserEntity`, `UsersDao`, `UserAppDatabase`,
   `DatabaseModule`). Owns the offline-first cache and the network refresh logic.
 - **`:feature:users`** – `UsersListScreen`, `UserDetailScreen`, their ViewModels, UI state
   models, and the navigation graph.
@@ -71,7 +71,7 @@ The repository is the single source of truth and follows a stale-while-revalidat
 1. **Read from disk first.** `UsersRepositoryImpl` exposes the cache as a hot
    `StateFlow<List<User>?>` backed by a Room `Flow`. `null` means "not read from disk yet"
    (a sub-frame window at process start); any list — even empty — means the cache has loaded.
-2. **Warm at startup.** The repository is touched in `TestApplication.onCreate()` so the disk
+2. **Warm at startup.** The repository is touched in `UserApplication.onCreate()` so the disk
    read starts during process init, *before* the first screen composes. This is why relaunch
    shows stored data immediately instead of a loader.
 3. **Refresh in the background.** `refreshUsers()` fetches from the network and, on success,
