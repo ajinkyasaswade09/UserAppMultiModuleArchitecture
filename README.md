@@ -15,7 +15,11 @@ multi-module architecture even though the feature set is intentionally small.
   shown **immediately**, then refreshed in the background and replaced when new data arrives.
 - Reactive UI driven by `StateFlow` + Jetpack Compose.
 
-## Screenshots
+## Screenshots & Video
+
+<p>
+  <img src="screenshots/screen_recording.gif" width="400" alt=""/>
+</p>
 
 | Users List | User Details |
 | :---: | :---: |
